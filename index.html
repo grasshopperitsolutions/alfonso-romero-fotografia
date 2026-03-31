@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alfonso Romero Fotografía</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Tipografía -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- React 18 + Babel desde CDN para evitar build step -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const { useState, useEffect } = React;
+
+      const SECTIONS = [
+        { id: 'home', label: 'Inicio' },
+        { id: 'about', label: 'Sobre mí' },
+        { id: 'services', label: 'Servicios' },
+        { id: 'contact', label: 'Contacto' },
+      ];
+
+      function useScrollSpy(sectionIds) {
+        const [activeId, setActiveId] = useState('home');
+
+        useEffect(() => {
+          const handler = () => {
+            let current = 'home';
+            sectionIds.forEach((id) => {
+              const el = document.getElementById(id);
+              if (!el) return;
+              const rect = el.getBoundingClientRect();
+              if (rect.top <= 120 && rect.bottom >= 120) {
+                current = id;
+              }
+            });
+            setActiveId(current);
+          };
+
+          window.addEventListener('scroll', handler);
+          handler();
+          return () => window.removeEventListener('scroll', handler);
+        }, [sectionIds]);
+
+        return activeId;
+      }
+
+      function Navbar() {
+        const [open, setOpen] = useState(false);
+        const activeId = useScrollSpy(SECTIONS.map((s) => s.id));
+
+        const scrollTo = (id) => {
+          const el = document.getElementById(id);
+          if (el) {
+            const y = el.getBoundingClientRect().top + window.pageYOffset - 80;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+          setOpen(false);
+        };
+
+        return (
+          <header className="navbar">
+            <div className="navbar-inner">
+              <div className="brand" onClick={() => scrollTo('home')}>
+                <span className="brand-title">Alfonso Romero</span>
+                <span className="brand-subtitle">Fotografía de autor</span>
+              </div>
+
+              <nav className="nav-links">
+                {SECTIONS.map((section) => (
+                  <button
+                    key={section.id}
+                    className={
+                      'nav-link' + (activeId === section.id ? ' nav-link-active' : '')
+                    }
+                    onClick={() => scrollTo(section.id)}
+                  >
+                    {section.label}
+                  </button>
+                ))}
+              </nav>
+
+              <button
+                className="menu-toggle"
+                aria-label="Abrir menú"
+                onClick={() => setOpen((o) => !o)}
+              >
+                <span></span>
+                <span></span>
+              </button>
+
+              {open && (
+                <div className="mobile-menu">
+                  {SECTIONS.map((section) => (
+                    <button
+                      key={section.id}
+                      className={
+                        'mobile-link' +
+                        (activeId === section.id ? ' mobile-link-active' : '')
+                      }
+                      onClick={() => scrollTo(section.id)}
+                    >
+                      {section.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </header>
+        );
+      }
+
+      function Hero() {
+        return (
+          <section id="home" className="section hero">
+            <div className="hero-overlay">
+              <div className="hero-content">
+                <p className="eyebrow">Portafolio fotográfico</p>
+                <h1>
+                  La geometría del espacio
+                  <br /> y la emoción del instante.
+                </h1>
+                <p className="hero-subtitle">
+                  Fotografía de autor que combina el rigor de la arquitectura con la
+                  honestidad de la emoción.
+                </p>
+                <div className="hero-actions">
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => {
+                      const el = document.getElementById('services');
+                      if (el) {
+                        const y =
+                          el.getBoundingClientRect().top + window.pageYOffset - 80;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                      }
+                    }}
+                  >
+                    Ver servicios
+                  </button>
+                  <button
+                    className="btn btn-ghost"
+                    onClick={() => {
+                      const el = document.getElementById('contact');
+                      if (el) {
+                        const y =
+                          el.getBoundingClientRect().top + window.pageYOffset - 80;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                      }
+                    }}
+                  >
+                    Hablemos de tu proyecto
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function PortraitStrip() {
+        const images = [
+          'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/3437d0f9-7837-4cd6-81e4-c779ca73fb4c',
+          'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/a986d8f3-2058-4c7d-9f12-f6446cf66a50',
+          'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/d115db14-0ff2-43f5-9b50-fd646d652463',
+          'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/dc8fb1bd-04bf-4a4a-8bc9-5a6ca6c1e253',
+        ];
+
+        return (
+          <div className="portrait-strip">
+            {images.map((src, idx) => (
+              <figure key={idx} className="portrait-item">
+                <img src={src} alt={`Retrato ${idx + 1}`} loading="lazy" />
+              </figure>
+            ))}
+          </div>
+        );
+      }
+
+      function About() {
+        return (
+          <section id="about" className="section section-light">
+            <div className="container two-column">
+              <div className="column text-column">
+                <p className="eyebrow">Sobre mí</p>
+                <h2>La historia detrás del lente</h2>
+                <p className="lead">
+                  Soy el alma detrás del lente que captura historias y las inmortaliza
+                  para ser contadas por siempre.
+                </p>
+                <p>
+                  Con años explorando la relación entre el espacio y quien lo habita,
+                  mi fotografía busca la perfección en la geometría y la honestidad en
+                  la emoción. No solo capturo lugares; documento la forma en que la luz
+                  y las sombras transforman nuestra percepción de la realidad.
+                </p>
+                <p>
+                  Mi enfoque combina el rigor técnico de la arquitectura con la
+                  sensibilidad de un observador silencioso. Cada imagen es un ejercicio
+                  de paciencia, silencio y observación.
+                </p>
+                <p>
+                  Creo en la honestidad del reflejo y en la fuerza de una mirada que
+                  encuentra orden en el caos visual. Cada captura es un compromiso con
+                  la emoción pura, congelada entre líneas, sombras y la arquitectura de
+                  lo invisible.
+                </p>
+                <p className="closing-phrase">
+                  Donde la arquitectura encuentra su sombra, ahí comienza mi historia.
+                </p>
+              </div>
+              <div className="column media-column">
+                <PortraitStrip />
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function ServiceCard({ title, subtitle, body, badge }) {
+        return (
+          <article className="service-card">
+            {badge && <span className="service-badge">{badge}</span>}
+            <h3>{title}</h3>
+            {subtitle && <p className="service-subtitle">{subtitle}</p>}
+            <p>{body}</p>
+          </article>
+        );
+      }
+
+      function Services() {
+        return (
+          <section id="services" className="section section-dark">
+            <div className="container">
+              <div className="section-header">
+                <p className="eyebrow">Servicios</p>
+                <h2>Soluciones visuales con visión de autor</h2>
+                <p className="section-intro">
+                  Un portafolio pensado para estudios de arquitectura, marcas y
+                  personas que buscan imágenes honestas, minimalistas y con
+                  profundidad emocional.
+                </p>
+              </div>
+
+              <div className="services-grid">
+                <ServiceCard
+                  title="Fotografía de Arquitectura e Interiorismo"
+                  body="Resalto la intención del diseño, las líneas puras y la
+                    interacción de la luz con los materiales. Ideal para estudios de
+                    arquitectura, interioristas y constructoras que necesitan
+                    comunicar la esencia de sus espacios."
+                />
+
+                <ServiceCard
+                  title="Retrato Documental y Editorial"
+                  body="Retratos que cuentan una historia a través de la mirada y el
+                    entorno. Sin artificios, buscando siempre la honestidad del
+                    gesto, la luz y la presencia de quien se pone frente a la cámara."
+                />
+
+                <ServiceCard
+                  title="Retrato de Marca Personal"
+                  subtitle="Sesión de Retrato Identidad: 10 fotos, 2 horas, entrega en 3 días."
+                  body="Para profesionales independientes, dueños de negocios y
+                    creativos que necesitan imágenes coherentes con su historia.
+                    Tu imagen profesional no tiene por qué ser aburrida ni falsa."
+                  badge="Servicio destacado"
+                />
+
+                <ServiceCard
+                  title="Contenido para Marcas"
+                  body="Documento la honestidad de tu proceso para que conectes con tu
+                    audiencia. Fotografía de producto y estilo de vida para
+                    emprendimientos locales, cafeterías, talleres y marcas que
+                    buscan contenido real, no solo publicidad."
+                />
+
+                <ServiceCard
+                  title="Crónica de lo Cotidiano"
+                  body="Proyectos personales, fotografía de calle y esos tragos
+                    amargos en blanco y negro. Un espacio para explorar la mirada de
+                    autor y ofrecer, si lo deseas, compra de prints para colección y
+                    decoración."
+                />
+
+                <ServiceCard
+                  title="Consultoría y Dirección Visual"
+                  body="Acompañamiento estratégico para marcas que buscan una estética
+                    coherente, minimalista y de alto impacto visual. Definimos junto
+                    tu lenguaje fotográfico, paleta y narrativa de largo plazo."
+                />
+              </div>
+
+              <div className="cta-block">
+                <p className="cta-text">¿Tienes un proyecto en mente?</p>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => {
+                    const el = document.getElementById('contact');
+                    if (el) {
+                      const y =
+                        el.getBoundingClientRect().top + window.pageYOffset - 80;
+                      window.scrollTo({ top: y, behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  Hablemos
+                </button>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function Contact() {
+        const [formState, setFormState] = useState({
+          name: '',
+          email: '',
+          type: 'Arquitectura',
+          message: '',
+        });
+
+        const handleChange = (e) => {
+          const { name, value } = e.target;
+          setFormState((prev) => ({ ...prev, [name]: value }));
+        };
+
+        const handleSubmit = (e) => {
+          e.preventDefault();
+          const { name, email, type, message } = formState;
+          const mailto = `mailto:fueradecasa.co@gmail.com?subject=Nuevo proyecto de ${type}&body=Nombre: ${name}%0D%0ACorreo: ${email}%0D%0ATipo de proyecto: ${type}%0D%0AMensaje:%0D%0A${message}`;
+          window.location.href = mailto;
+        };
+
+        return (
+          <section id="contact" className="section section-light">
+            <div className="container two-column contact-layout">
+              <div className="column text-column">
+                <p className="eyebrow">Contacto</p>
+                <h2>Proyectos con alma, no solo formularios</h2>
+                <p className="lead">
+                  Disponible para proyectos nacionales e internacionales. Cuéntame tu
+                  idea y busquemos la mejor forma de visualizarla.
+                </p>
+                <ul className="contact-data">
+                  <li>
+                    <span className="label">Email</span>
+                    <a href="mailto:fueradecasa.co@gmail.com">
+                      fueradecasa.co@gmail.com
+                    </a>
+                  </li>
+                  <li>
+                    <span className="label">Instagram</span>
+                    <a
+                      href="https://www.instagram.com/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      @tu_usuario
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="column form-column">
+                <form className="contact-form" onSubmit={handleSubmit}>
+                  <div className="field">
+                    <label htmlFor="name">Nombre completo</label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      required
+                      value={formState.name}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label htmlFor="email">Correo electrónico</label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      value={formState.email}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label htmlFor="type">Tipo de proyecto</label>
+                    <select
+                      id="type"
+                      name="type"
+                      value={formState.type}
+                      onChange={handleChange}
+                    >
+                      <option value="Arquitectura">Arquitectura</option>
+                      <option value="Retrato">Retrato</option>
+                      <option value="Consultoría">Consultoría</option>
+                      <option value="Otro">Otro</option>
+                    </select>
+                  </div>
+
+                  <div className="field">
+                    <label htmlFor="message">
+                      Cuéntame más sobre tu historia e inmortalizamos tus ideas
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="4"
+                      required
+                      value={formState.message}
+                      onChange={handleChange}
+                    ></textarea>
+                  </div>
+
+                  <button className="btn btn-primary" type="submit">
+                    Enviar mensaje
+                  </button>
+                </form>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function Footer() {
+        return (
+          <footer className="footer">
+            <div className="container footer-inner">
+              <p>© {new Date().getFullYear()} Alfonso Romero Fotografía.</p>
+              <p className="footer-note">
+                Portafolio diseñado a partir de la arquitectura de contenidos y
+                moodboards del proyecto original.
+              </p>
+            </div>
+          </footer>
+        );
+      }
+
+      function App() {
+        return (
+          <>
+            <Navbar />
+            <main>
+              <Hero />
+              <About />
+              <Services />
+              <Contact />
+            </main>
+            <Footer />
+          </>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
