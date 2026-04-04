@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import CameraIcon from "../assets/camera.svg?react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,11 +33,16 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-4 flex justify-between items-center">
-        <Link
-          to="/"
-          className="text-xl font-serif font-semibold tracking-wide"
-        >
-          FOTOGRAFÍA<span className="text-gray-500 font-sans font-light text-sm ml-2 hidden sm:inline-block">DE AUTOR</span>
+        <Link to="/" className="flex items-center space-x-3 group">
+          <div className="text-white group-hover:text-gray-300 transition-colors">
+            <CameraIcon />
+          </div>
+          <div className="text-xl font-serif font-semibold tracking-wide">
+            FOTOGRAFÍA
+            <span className="text-gray-500 font-sans font-light text-sm ml-2 hidden sm:inline-block">
+              DE AUTOR
+            </span>
+          </div>
         </Link>
 
         <nav className="hidden md:flex space-x-8 text-sm tracking-widest font-light uppercase">
@@ -59,7 +65,12 @@ export default function Header() {
           onClick={toggleMenu}
           className="md:hidden text-white focus:outline-none"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"

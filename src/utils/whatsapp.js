@@ -2,7 +2,7 @@
  * WhatsApp utility functions
  */
 
-const PHONE_NUMBER = "1234567890"; // Replace with actual number
+const PHONE_NUMBER = "+33767834576"; // Replace with actual number
 
 /**
  * Share the current page URL via WhatsApp
