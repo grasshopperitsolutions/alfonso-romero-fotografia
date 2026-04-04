@@ -28,18 +28,20 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed w-full top-0 z-50 backdrop-blur-md border-b border-white/10 transition-all duration-300 ${
-        isScrolled ? "shadow-lg bg-brand-black" : "bg-brand-black/90"
+      className={`fixed w-full top-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? "bg-brand-black/95 backdrop-blur-md border-b border-white/10 py-3"
+          : "bg-transparent py-6"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-4 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-3 group">
-          <div className="text-white group-hover:text-gray-300 transition-colors">
+          <div className="text-white group-hover:text-gray-300 transition-colors duration-300">
             <CameraIcon />
           </div>
-          <div className="text-xl font-serif font-semibold tracking-wide">
+          <div className="text-xl font-serif font-semibold tracking-wide flex items-baseline">
             FOTOGRAFÍA
-            <span className="text-gray-500 font-sans font-light text-sm ml-2 hidden sm:inline-block">
+            <span className="text-gray-500 font-sans font-light text-sm ml-2 hidden sm:inline-block tracking-widest">
               DE AUTOR
             </span>
           </div>
@@ -50,49 +52,76 @@ export default function Header() {
             <Link
               key={link.to}
               to={link.to}
-              className={`nav-link hover:text-white ${
+              className={`relative pb-1 overflow-hidden group ${
                 location.pathname === link.to
-                  ? "active text-white"
-                  : "text-gray-400"
+                  ? "text-white"
+                  : "text-gray-400 hover:text-white transition-colors duration-300"
               }`}
             >
               {link.label}
+              <span
+                className={`absolute bottom-0 left-0 w-full h-px bg-white transform origin-left transition-transform duration-300 ${
+                  location.pathname === link.to
+                    ? "scale-x-100"
+                    : "scale-x-0 group-hover:scale-x-100"
+                }`}
+              ></span>
             </Link>
           ))}
         </nav>
 
         <button
           onClick={toggleMenu}
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden text-white focus:outline-none z-50 relative"
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.5"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
+          {isMenuOpen ? (
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          ) : (
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          )}
         </button>
       </div>
 
+      {/* Mobile Menu - Full screen overlay */}
       <div
-        className={`md:hidden bg-brand-black border-b border-white/10 ${
-          isMenuOpen ? "" : "hidden"
+        className={`fixed inset-0 bg-brand-black z-40 transition-transform duration-500 ease-in-out md:hidden flex flex-col justify-center ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <nav className="flex flex-col px-6 py-4 space-y-4 text-sm tracking-widest font-light uppercase">
-          {navLinks.map((link) => (
+        <nav className="flex flex-col px-12 space-y-8 text-xl tracking-widest font-light uppercase">
+          {navLinks.map((link, index) => (
             <Link
               key={link.to}
               to={link.to}
+              className={`${
+                location.pathname === link.to ? "text-white" : "text-gray-500"
+              } hover:text-white transition-colors`}
+              style={{ transitionDelay: `${index * 100}ms` }}
               onClick={closeMenu}
-              className="text-gray-400 hover:text-white"
             >
               {link.label}
             </Link>
