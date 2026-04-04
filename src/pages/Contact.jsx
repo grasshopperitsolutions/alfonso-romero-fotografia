@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import Alert from "../components/Alert";
+import { useAlert } from "../hooks/useAlert";
 import { directWhatsApp } from "../utils/whatsapp";
 
 // --- ÍCONOS SVG ---
@@ -33,12 +33,25 @@ const projectOptions = [
   { value: "otro", label: "Otro" },
 ];
 
+// Validación de email
+const isValidEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
 export default function Contact() {
+  const { showSuccess, showError, showWarning } = useAlert();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
+
+  // Estados del formulario
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    project: "",
+    message: "",
+  });
 
   // Estados para el Dropdown Personalizado
-  const [selectedProject, setSelectedProject] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -53,24 +66,69 @@ export default function Contact() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [dropdownRef]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!selectedProject) {
-      // Si no hay proyecto seleccionado, no enviar
-      return;
-    }
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      e.target.reset();
-      setSelectedProject("");
-      setShowSuccess(true);
-      setTimeout(() => setShowSuccess(false), 5000);
-    }, 1500);
+  // Manejar cambios en los inputs
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleAlertClose = () => {
-    setShowSuccess(false);
+  // Manejar selección del dropdown
+  const handleProjectSelect = (value) => {
+    setFormData((prev) => ({ ...prev, project: value }));
+    setIsDropdownOpen(false);
+  };
+
+  // Validar formulario
+  const validateForm = () => {
+    // Validar nombre
+    if (!formData.name.trim()) {
+      showError("El nombre completo es obligatorio.");
+      return false;
+    }
+
+    // Validar email
+    if (!formData.email.trim()) {
+      showError("El correo electrónico es obligatorio.");
+      return false;
+    }
+    if (!isValidEmail(formData.email)) {
+      showError("Por favor, ingresa un correo electrónico válido.");
+      return false;
+    }
+
+    // Validar tipo de proyecto
+    if (!formData.project) {
+      showError("Debes seleccionar un tipo de proyecto.");
+      return false;
+    }
+
+    // // Validar mensaje
+    // if (!formData.message.trim()) {
+    //   showError("El mensaje es obligatorio.");
+    //   return false;
+    // }
+
+    return true;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Validar formulario
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // Simular envío (funcionalidad no implementada)
+    setTimeout(() => {
+      setIsSubmitting(false);
+      showError(
+        "Funcionalidad no implementada - Este formulario es solo demostrativo.",
+      );
+      // No resetear el formulario para mantener los datos (como en producción)
+    }, 1500);
   };
 
   return (
@@ -89,7 +147,6 @@ export default function Contact() {
         }
         .delay-100 { animation-delay: 100ms; }
         .delay-200 { animation-delay: 200ms; }
-        .delay-300 { animation-delay: 300ms; }
 
         /* Estilos pulidos para los inputs (Floating labels effect) */
         .slick-input {
@@ -141,9 +198,6 @@ export default function Contact() {
         <div className="flex-grow max-w-7xl mx-auto px-6 lg:px-12 w-full flex flex-col lg:flex-row gap-16 lg:gap-24 mb-20 lg:mb-32">
           {/* COLUMNA IZQUIERDA: Textos y Datos Directos */}
           <div className="w-full lg:w-5/12 flex flex-col justify-center mt-12 lg:mt-0 animate-fade-up">
-            {/* <h1 className="text-sm tracking-[0.3em] uppercase text-gray-500 font-light mb-6">
-              Encuentro
-            </h1> */}
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-8 leading-[1.1]">
               ¿Tienes un proyecto <br className="hidden lg:block" />
               <span className="italic text-gray-400">en mente?</span>
@@ -201,12 +255,14 @@ export default function Contact() {
                   <input
                     type="text"
                     id="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
                     required
                     className="slick-input peer"
                     placeholder="Tu nombre completo"
                   />
                   <label htmlFor="name" className="floating-label">
-                    Nombre Completo
+                    Nombre Completo *
                   </label>
                 </div>
 
@@ -215,45 +271,38 @@ export default function Contact() {
                   <input
                     type="email"
                     id="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     required
                     className="slick-input peer"
                     placeholder="tu@correo.com"
                   />
                   <label htmlFor="email" className="floating-label">
-                    Correo Electrónico
+                    Correo Electrónico *
                   </label>
                 </div>
 
                 {/* Grupo: Tipo de Proyecto (Dropdown Personalizado) */}
                 <div className="relative pt-4" ref={dropdownRef}>
-                  {/* Input invisible para mantener la validación nativa 'required' de HTML */}
-                  <input
-                    type="text"
-                    required
-                    value={selectedProject}
-                    onChange={() => {}}
-                    className="absolute bottom-0 left-0 w-full h-0 opacity-0 pointer-events-none"
-                  />
-
                   <div
-                    className="slick-input cursor-pointer relative"
+                    className={`slick-input cursor-pointer relative ${!formData.project ? "" : ""}`}
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   >
                     <span
-                      className={`block truncate ${selectedProject ? "text-white" : "text-transparent"}`}
+                      className={`block truncate ${formData.project ? "text-white" : "text-transparent"}`}
                     >
-                      {selectedProject
+                      {formData.project
                         ? projectOptions.find(
-                            (o) => o.value === selectedProject,
+                            (o) => o.value === formData.project,
                           )?.label
                         : "Selecciona un proyecto"}
                     </span>
 
                     {/* Etiqueta flotante manual controlada por estado */}
                     <label
-                      className={`floating-label ${selectedProject || isDropdownOpen ? "active" : ""}`}
+                      className={`floating-label ${formData.project || isDropdownOpen ? "active" : ""}`}
                     >
-                      Tipo de Proyecto
+                      Tipo de Proyecto *
                     </label>
 
                     {/* Ícono de flecha animado */}
@@ -284,11 +333,8 @@ export default function Contact() {
                       {projectOptions.map((option) => (
                         <li
                           key={option.value}
-                          className={`px-4 py-3 text-sm font-light cursor-pointer transition-colors ${selectedProject === option.value ? "bg-white/10 text-white" : "text-gray-400 hover:bg-white/5 hover:text-white"}`}
-                          onClick={() => {
-                            setSelectedProject(option.value);
-                            setIsDropdownOpen(false);
-                          }}
+                          className={`px-4 py-3 text-sm font-light cursor-pointer transition-colors ${formData.project === option.value ? "bg-white/10 text-white" : "text-gray-400 hover:bg-white/5 hover:text-white"}`}
+                          onClick={() => handleProjectSelect(option.value)}
                         >
                           {option.label}
                         </li>
@@ -302,12 +348,14 @@ export default function Contact() {
                   <textarea
                     id="message"
                     rows="4"
-                    required
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    // required
                     className="slick-input peer resize-none"
                     placeholder="Cuéntame más..."
                   ></textarea>
                   <label htmlFor="message" className="floating-label">
-                    Cuéntame más sobre tu historia e inmortalizamos tus ideas
+                    Cuéntame más sobre tu historia e inmortalizamos tus ideas *
                   </label>
                 </div>
 
@@ -315,24 +363,12 @@ export default function Contact() {
                 <div className="pt-4">
                   <button
                     type="submit"
-                    disabled={isSubmitting || !selectedProject}
+                    disabled={isSubmitting}
                     className={`w-full py-5 border border-white bg-white text-black text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 relative overflow-hidden ${isSubmitting ? "opacity-70 cursor-not-allowed" : "hover:bg-transparent hover:text-white"}`}
                   >
                     {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
                   </button>
                 </div>
-
-                {/* Mensaje de Éxito con Alert Component */}
-                {showSuccess && (
-                  <div className="animate-fade-up delay-300">
-                    <Alert
-                      type="success"
-                      message="Gracias por tu mensaje. Me pondré en contacto contigo pronto."
-                      onClose={handleAlertClose}
-                      autoClose={5000}
-                    />
-                  </div>
-                )}
               </form>
             </div>
           </div>
