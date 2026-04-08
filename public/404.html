@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>404 | Alfonso Romero Fotografía</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate-reveal {
+      animation: reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    
+    .glitch-text {
+      background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.1) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    ::selection {
+      background: white;
+      color: black;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#0a0a0a] text-[#f4f4f5] flex flex-col font-sans m-0 p-0">
+  
+  <!-- HEADER -->
+  <header class="fixed w-full top-0 z-50 bg-transparent py-6 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
+      <a href="/" class="flex items-center space-x-3 group text-inherit no-underline">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
+          <circle cx="12" cy="13" r="3" />
+        </svg>
+        <div class="text-xl font-serif font-semibold tracking-wide flex items-baseline">
+          FOTOGRAFÍA
+          <span class="text-gray-500 font-sans font-light text-sm ml-2 tracking-widest">DE AUTOR</span>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <!-- CONTENIDO 404 -->
+  <main class="flex-grow flex flex-col items-center justify-center px-6 text-center relative overflow-hidden min-h-screen pt-20">
+    
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/[0.02] rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="relative z-10 animate-reveal">
+      <h1 class="text-[12rem] md:text-[18rem] font-serif font-light leading-none glitch-text m-0 mb-4">
+        404
+      </h1>
+
+      <div class="max-w-md mx-auto">
+        <h2 class="text-sm tracking-[0.4em] uppercase text-gray-400 mb-6 font-light m-0">
+          Espacio no encontrado
+        </h2>
+        <p class="text-lg font-serif italic text-gray-300 mb-10 leading-relaxed m-0">
+          "Incluso en el vacío de esta página, <br />
+          la geometría de la ausencia narra una historia."
+        </p>
+        
+        <p class="text-xs tracking-[0.3em] text-gray-500 mb-8 uppercase">
+          Redirigiendo automáticamente en <span id="countdown">3</span> segundos...
+        </p>
+
+        <a href="/" class="inline-flex items-center px-10 py-4 border border-white/20 hover:border-white text-white text-[10px] uppercase tracking-[0.3em] font-medium transition-all duration-500 group overflow-hidden relative no-underline" id="homeButton">
+          <span class="absolute inset-0 w-0 bg-white transition-all duration-500 ease-out group-hover:w-full"></span>
+          <span class="relative z-10 flex items-center group-hover:text-black transition-colors duration-500">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Volver al inicio
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Coordenadas Decorativas -->
+    <div class="absolute bottom-12 left-12 hidden lg:block text-[10px] tracking-[0.5em] text-gray-700 uppercase">
+      ERROR_CODE: NULL_FRAME_04
+    </div>
+    <div class="absolute bottom-12 right-12 hidden lg:block text-[10px] tracking-[0.5em] text-gray-700 uppercase">
+      LAT: 0.000 / LONG: 0.000
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-12 border-t border-white/5 bg-[#0a0a0a]">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <p class="text-[9px] uppercase tracking-[0.4em] text-gray-600 font-light m-0">
+        Explorando lo invisible — ${new Date().getFullYear()}
+      </p>
+    </div>
+  </footer>
+
+  <!-- GitHub Pages Redirect Logic -->
+  <script>
+    let cancelled = false;
+    let countdown = 3;
+    const countdownEl = document.getElementById('countdown');
+    const homeButton = document.getElementById('homeButton');
+    
+    homeButton.addEventListener('click', () => {
+      cancelled = true;
+    });
+    
+    const timer = setInterval(() => {
+      countdown--;
+      countdownEl.textContent = countdown;
+      
+      if (countdown <= 0) {
+        clearInterval(timer);
+        if (!cancelled) {
+          // GitHub Pages routing fix
+          var segmentCount = 0;
+          var location = window.location;
+          var redirectUrl = location.protocol + '//' + location.hostname + 
+            (location.port ? ':' + location.port : '') +
+            location.pathname.split('/').slice(0, 1 + segmentCount).join('/') +
+            '/?p=/' +
+            location.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+            (location.search ? '&q=' + location.search.slice(1).replace(/&/g, '~and~') : '') +
+            location.hash;
+          
+          window.location.replace(redirectUrl);
+        }
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
