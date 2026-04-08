@@ -1,0 +1,17 @@
+{
+  "name": "Alfonso Romero Fotografía",
+  "short_name": "Alfonso Romero",
+  "description": "Retratos Artísticos y Fotografía de Autor",
+  "theme_color": "#0a0a0a",
+  "background_color": "#0a0a0a",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/assets/camera.svg",
+      "sizes": "16x16 32x32 48x48 72x72 96x96 128x128 144x144 152x152 192x192 256x256 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

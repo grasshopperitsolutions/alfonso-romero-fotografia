@@ -50,7 +50,11 @@
     <meta property="og:site_name" content="Alfonso Romero Fotografía" />
     <meta property="og:title" content="Alfonso Romero Fotografía | Retratos Artísticos y Fotografía de Autor" />
     <meta property="og:description" content="Fotógrafo artístico especializado en retratos minimalistas, fotografía emocional y documentación de historias auténticas." />
-    <meta property="og:image" content="https://alfonso-romero.art/assets/home.jpeg" />
+    <meta property="og:image" content="https://alfonso-romero.art/assets/profile.jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1200" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="Alfonso Romero Fotografía - Perfil" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:locale:alternate" content="en_US" />
     
@@ -59,7 +63,12 @@
     <meta name="twitter:url" content="https://alfonso-romero.art/" />
     <meta name="twitter:title" content="Alfonso Romero Fotografía | Retratos Artísticos y Fotografía de Autor" />
     <meta name="twitter:description" content="Fotógrafo artístico especializado en retratos minimalistas, fotografía emocional y documentación de historias auténticas." />
-    <meta name="twitter:image" content="https://alfonso-romero.art/assets/home.jpeg" />
+    <meta name="twitter:image" content="https://alfonso-romero.art/assets/profile.jpeg" />
+    <meta name="twitter:image:alt" content="Alfonso Romero Fotografía - Perfil" />
+    
+    <!-- Universal Sharing Image -->
+    <link rel="image_src" href="https://alfonso-romero.art/assets/profile.jpeg" />
+    <meta itemprop="image" content="https://alfonso-romero.art/assets/profile.jpeg" />
     
     <!-- Hreflang Tags -->
     <link rel="alternate" hreflang="es" href="https://alfonso-romero.art/" />
@@ -76,11 +85,27 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
     
-    <!-- Favicon -->
+    <!-- Favicon / Browser Icons -->
     <link rel="icon" type="image/svg+xml" href="/assets/camera.svg" />
-    <link rel="apple-touch-icon" href="/assets/camera.svg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/camera.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/camera.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/camera.svg" />
     
-    <!-- Manifest for PWA (future) -->
+    <!-- Apple iOS Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/camera.svg" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Alfonso Romero" />
+    
+    <!-- Windows Tile Icon -->
+    <meta name="msapplication-TileColor" content="#0a0a0a" />
+    <meta name="msapplication-TileImage" content="/assets/camera.svg" />
+
+    <!-- Android / Chrome Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/camera.svg" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/camera.svg" />
+
+    <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json" />
   </head>
   <body>
@@ -118,7 +143,7 @@
           "name": "Alfonso Romero Fotografía",
           "description": "Fotografía de autor especializada en retratos artísticos, fotografía minimalista y documentación emocional. Sesiones profesionales de retrato en España y Europa.",
           "url": "https://alfonso-romero.art",
-          "image": "https://alfonso-romero.art/assets/home.jpeg",
+          "image": "https://alfonso-romero.art/assets/profile.jpeg",
           "priceRange": "$$$",
           "address": {
             "@type": "PostalAddress",
