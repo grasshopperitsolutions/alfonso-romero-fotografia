@@ -1,0 +1,33 @@
+{
+  "site": {
+    "name": "Alfonso Romero Photography",
+    "url": "https://alfonso-romero.art",
+    "description": "Author photography specializing in artistic portraits, minimalist photography, and emotional documentation. Professional portrait sessions in Spain and Europe."
+  },
+  "home": {
+    "title": "Alfonso Romero Photography | Artistic Portraits & Author Photography",
+    "description": "Artistic photographer specializing in minimalist portraits, emotional photography, and authentic story documentation. Professional sessions in Spain and Europe.",
+    "keywords": "Alfonso Romero Photography, portrait photographer, artistic photographer, professional photographic portrait, portrait photography Spain, minimalist photography, black and white portraits, artistic portrait photography, emotional photography, artistic portrait photographer"
+  },
+  "services": {
+    "title": "Photography Services | Portrait, Editorial & Visual Direction - Alfonso Romero",
+    "description": "Professional photography services: documentary and editorial portrait, architecture photography, brand content, visual consulting, and personal projects.",
+    "keywords": "photography services, professional portrait session, photographer for personal portrait sessions, documentary photography of people, hire portrait photographer, professional photography session, portrait session price"
+  },
+  "about": {
+    "title": "About Alfonso Romero | Artistic Portrait Photographer",
+    "description": "Discover the story behind the lens. Alfonso Romero combines technical rigor with artistic sensitivity to create authentic portraits full of emotion and geometry.",
+    "keywords": "about Alfonso Romero, artistic photographer, photography with identity, authentic portraits, everyday life photography, intentional portraits"
+  },
+  "contact": {
+    "title": "Contact | Professional Photography Sessions - Alfonso Romero",
+    "description": "Contact for professional photography sessions. Available for national and international projects in Spain and Europe. Portraits, architecture, and visual consulting.",
+    "keywords": "contact photographer, hire photographer, photography session, portrait photographer portfolio"
+  },
+  "person": {
+    "name": "Alfonso Romero",
+    "alternateName": "Alfonso Romero Photography",
+    "jobTitle": "Artistic Photographer",
+    "description": "Author photographer specializing in artistic portraits, minimalist photography, and emotional documentation. Combines architectural geometry with the honesty of human emotion."
+  }
+}

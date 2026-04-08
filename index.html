@@ -3,22 +3,126 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alfonso Romero | Fotografia de Autor</title>
-    <meta name="description" content="La geometria del espacio y la emocion del instante. Fotografia de autor, arquitectura, retrato y direccion visual." />
+    <meta name="theme-color" content="#0a0a0a" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Alfonso Romero Fotografía | Retratos Artísticos y Fotografía de Autor</title>
+    <meta name="title" content="Alfonso Romero Fotografía | Retratos Artísticos y Fotografía de Autor" />
+    <meta name="description" content="Fotógrafo artístico especializado en retratos minimalistas, fotografía emocional y documentación de historias auténticas. Sesiones profesionales en España y Europa." />
+    <meta name="keywords" content="Alfonso Romero Fotografía, fotógrafo de retratos, fotógrafo artístico, retrato fotográfico profesional, fotografía de retratos España, fotografía minimalista, retratos en blanco y negro, fotografía artística de retrato, fotografía emocional" />
+    <meta name="author" content="Alfonso Romero" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Spanish" />
+    <meta name="revisit-after" content="7 days" />
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="ES" />
+    <meta name="geo.placename" content="Spain" />
+    <meta name="geo.position" content="40.4168;-3.7038" />
+    <meta name="ICBM" content="40.4168, -3.7038" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://alfonso-romero.art/" />
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://tu-dominio.com/" />
-    <meta property="og:title" content="Alfonso Romero | Fotografia de Autor" />
-    <meta property="og:description" content="La geometria del espacio y la emocion del instante. Fotografia de autor, arquitectura, retrato y direccion visual." />
-    <meta property="og:image" content="/assets/home.jpeg" />
-    <meta property="og:site_name" content="Fotografia de Autor" />
+    <meta property="og:url" content="https://alfonso-romero.art/" />
+    <meta property="og:site_name" content="Alfonso Romero Fotografía" />
+    <meta property="og:title" content="Alfonso Romero Fotografía | Retratos Artísticos y Fotografía de Autor" />
+    <meta property="og:description" content="Fotógrafo artístico especializado en retratos minimalistas, fotografía emocional y documentación de historias auténticas." />
+    <meta property="og:image" content="https://alfonso-romero.art/assets/home.jpeg" />
     <meta property="og:locale" content="es_ES" />
-    <link rel="icon" type="image/svg+xml" href="/assets/camera.svg" />
+    <meta property="og:locale:alternate" content="en_US" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://alfonso-romero.art/" />
+    <meta name="twitter:title" content="Alfonso Romero Fotografía | Retratos Artísticos y Fotografía de Autor" />
+    <meta name="twitter:description" content="Fotógrafo artístico especializado en retratos minimalistas, fotografía emocional y documentación de historias auténticas." />
+    <meta name="twitter:image" content="https://alfonso-romero.art/assets/home.jpeg" />
+    
+    <!-- Hreflang Tags -->
+    <link rel="alternate" hreflang="es" href="https://alfonso-romero.art/" />
+    <link rel="alternate" hreflang="en" href="https://alfonso-romero.art/" />
+    <link rel="alternate" hreflang="x-default" href="https://alfonso-romero.art/" />
+    
+    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/camera.svg" />
+    <link rel="apple-touch-icon" href="/assets/camera.svg" />
+    
+    <!-- Manifest for PWA (future) -->
+    <link rel="manifest" href="/manifest.json" />
   </head>
   <body>
-    <div id="root"></div> 
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black">
+      Saltar al contenido principal
+    </a>
+    
+    <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "name": "Alfonso Romero",
+          "alternateName": "Alfonso Romero Fotografía",
+          "jobTitle": "Fotógrafo Artístico",
+          "description": "Fotógrafo de autor especializado en retratos artísticos, fotografía minimalista y documentación emocional.",
+          "url": "https://alfonso-romero.art",
+          "sameAs": [
+            "https://instagram.com/alfonsoromero",
+            "https://linkedin.com/in/alfonsoromero"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "ES"
+          }
+        },
+        {
+          "@type": "ProfessionalService",
+          "name": "Alfonso Romero Fotografía",
+          "description": "Fotografía de autor especializada en retratos artísticos, fotografía minimalista y documentación emocional. Sesiones profesionales de retrato en España y Europa.",
+          "url": "https://alfonso-romero.art",
+          "image": "https://alfonso-romero.art/assets/home.jpeg",
+          "priceRange": "$$$",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "ES"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Spain"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "name": "Alfonso Romero Fotografía",
+          "description": "Fotografía de autor especializada en retratos artísticos, fotografía minimalista y documentación emocional.",
+          "url": "https://alfonso-romero.art",
+          "inLanguage": "es",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://alfonso-romero.art/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
   </body>
 </html>

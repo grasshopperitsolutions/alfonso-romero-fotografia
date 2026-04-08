@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Mí",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
+  "home": {
+    "hero": {
+      "title_part1": "La geometría del espacio",
+      "title_part2": "y la emoción del instante.",
+      "subtitle": "Fotografía de Autor",
+      "cta_portfolio": "Ver Portafolio",
+      "cta_contact": "Contactar"
+    }
+  },
+  "services": {
+    "header": {
+      "subtitle": "Portafolio & Servicios",
+      "title": "Pilares Visuales"
+    },
+    "categories": {
+      "architecture": {
+        "title": "Fotografía de Arquitectura e Interiorismo",
+        "description": "Resaltando la intención del diseño, las líneas puras y la interacción de la luz con los materiales. Ideal para estudios de arquitectura y constructoras."
+      },
+      "portrait": {
+        "title": "Retrato Documental y Editorial",
+        "description": "Capturando la esencia humana sin artificios. Retratos que cuentan una historia a través de la mirada y el entorno. Incluye Retrato de Marca Personal para profesionales."
+      },
+      "brand": {
+        "title": "Contenido para Marcas (Producto y Estilo de Vida)",
+        "description": "Yo documento la honestidad de tu proceso para que conectes con tu audiencia. Entrega de material visual que no parece publicidad, sino vida real."
+      },
+      "everyday": {
+        "title": "Crónica de lo Cotidiano",
+        "description": "Proyectos personales, fotografía de calle y esos 'tragos amargos' en blanco y negro. Visión de autor que posiciona tu trabajo artístico. Opción de compra de prints."
+      },
+      "consulting": {
+        "title": "Consultoría y Dirección Visual",
+        "description": "Acompañamiento estratégico para marcas que buscan una estética coherente, minimalista y de alto impacto visual."
+      }
+    },
+    "cta": {
+      "title_part1": "¿Tienes un proyecto",
+      "title_part2": "en mente?",
+      "title_part3": "Hablemos.",
+      "description": "Más que un presupuesto, busco una conversación sobre proyectos con alma. Cuéntame tu idea y busquemos la mejor forma de visualizarla a través del lente.",
+      "button": "Iniciar Conversación"
+    }
+  },
+  "about": {
+    "title": "La historia detrás del lente",
+    "quote": "Soy el alma detrás del lente que captura las historias y las inmortaliza para ser contadas por siempre. La fotografía es mi salto de fe ante la indiferencia del mundo.",
+    "subtitle": "Capturando la estructura de lo invisible",
+    "paragraph1": "Explorando la relación entre el espacio y quien lo habita, mi fotografía busca la perfección en la geometría y la honestidad en la emoción. No solo capturo lugares; documento la forma en que la luz y las sombras transforman nuestra percepción de la realidad.",
+    "paragraph2": "Mi enfoque combina el rigor técnico de la arquitectura con la sensibilidad de un observador silencioso. No persigo la luz; espero el momento en que la sombra revela la verdadera forma de las cosas.",
+    "paragraph3": "Mi fotografía es un ejercicio de silencio y observación, donde la geometría de los espacios deja de ser concreto para convertirse en sentimiento y narrar historias. Creo en la honestidad del reflejo y en la fuerza de una mirada que encuentra el orden en el caos visual. Cada captura es un compromiso con la emoción pura, congelada entre líneas, sombras y la arquitectura de lo invisible.",
+    "cta_project": "Hablemos de tu proyecto",
+    "cta_whatsapp": "WhatsApp"
+  },
+  "contact": {
+    "title_part1": "¿Tienes un proyecto",
+    "title_part2": "en mente?",
+    "title_part3": "Hablemos.",
+    "description": "Disponible para proyectos nacionales e internacionales. Cuéntame tu idea y busquemos la mejor forma de visualizarla.",
+    "form": {
+      "name_label": "Nombre Completo *",
+      "name_placeholder": "Tu nombre completo",
+      "email_label": "Correo Electrónico *",
+      "email_placeholder": "tu@correo.com",
+      "project_label": "Tipo de Proyecto *",
+      "project_placeholder": "Selecciona un proyecto",
+      "project_options": {
+        "architecture": "Arquitectura & Espacios",
+        "portrait": "Retrato Documental y Editorial",
+        "consulting": "Consultoría & Dirección Visual",
+        "other": "Otro"
+      },
+      "message_label": "Cuéntame más sobre tu historia e inmortalizamos tus ideas *",
+      "message_placeholder": "Cuéntame más...",
+      "submit": "Enviar Mensaje",
+      "submitting": "Enviando..."
+    }
+  },
+  "footer": {
+    "quote": "Donde la arquitectura encuentra su sombra, ahí comienza mi historia.",
+    "copyright": "Fotografía de Autor. Todos los derechos reservados.",
+    "social": {
+      "instagram": "Instagram",
+      "tiktok": "TikTok",
+      "linkedin": "LinkedIn",
+      "whatsapp": "Compartir por WhatsApp"
+    }
+  },
+  "common": {
+    "aria": {
+      "main_nav": "Navegación principal",
+      "social_links": "Redes sociales",
+      "skip_to_content": "Ir al contenido principal"
+    }
+  }
+}

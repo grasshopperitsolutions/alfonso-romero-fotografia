@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { useAlert } from "../hooks/useAlert";
 import { directWhatsApp } from "../utils/whatsapp";
+import SEOMeta from "../components/SEOMeta";
 
 // --- ÍCONOS SVG ---
 const MailIcon = () => (
@@ -40,6 +42,7 @@ const isValidEmail = (email) => {
 };
 
 export default function Contact() {
+  const { t } = useTranslation();
   const { showSuccess, showError, showWarning } = useAlert();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -102,37 +105,23 @@ export default function Contact() {
       return false;
     }
 
-    // // Validar mensaje
-    // if (!formData.message.trim()) {
-    //   showError("El mensaje es obligatorio.");
-    //   return false;
-    // }
-
     return true;
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Validar formulario
+    // Validar formulario antes de enviar
     if (!validateForm()) {
+      e.preventDefault();
       return;
     }
 
     setIsSubmitting(true);
-
-    // Simular envío (funcionalidad no implementada)
-    setTimeout(() => {
-      setIsSubmitting(false);
-      showError(
-        "Funcionalidad no implementada - Este formulario es solo demostrativo.",
-      );
-      // No resetear el formulario para mantener los datos (como en producción)
-    }, 1500);
   };
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-[#f4f4f5] flex flex-col font-sans selection:bg-white selection:text-black">
+      <SEOMeta page="contact" />
+      
       {/* ESTILOS GLOBALES Y ANIMACIONES */}
       <style
         dangerouslySetInnerHTML={{
@@ -199,17 +188,16 @@ export default function Contact() {
           {/* COLUMNA IZQUIERDA: Textos y Datos Directos */}
           <div className="w-full lg:w-5/12 flex flex-col justify-center mt-12 lg:mt-0 animate-fade-up">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-8 leading-[1.1]">
-              ¿Tienes un proyecto <br className="hidden lg:block" />
-              <span className="italic text-gray-400">en mente?</span>
+              {t('contact.title_part1')} <br className="hidden lg:block" />
+              <span className="italic text-gray-400">{t('contact.title_part2')}</span>
               <br />
-              Hablemos.
+              {t('contact.title_part3')}
             </h2>
 
             <div className="h-px w-20 bg-white/30 mb-8"></div>
 
             <p className="text-lg text-gray-300 font-light leading-relaxed mb-16 max-w-md">
-              Disponible para proyectos nacionales e internacionales. Cuéntame
-              tu idea y busquemos la mejor forma de visualizarla.
+              {t('contact.description')}
             </p>
 
             {/* Datos Directos */}
@@ -243,10 +231,11 @@ export default function Contact() {
           {/* COLUMNA DERECHA: El Formulario "Slick" */}
           <div className="w-full lg:w-7/12 flex flex-col justify-center animate-fade-up delay-200">
             <div className="bg-[#111] p-8 md:p-12 lg:p-16 border border-white/5 relative overflow-hidden group">
-              {/* Sutil textura/gradiente en el fondo del formulario */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/[0.02] rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-white/[0.04] transition-colors duration-700"></div>
 
               <form
+                action="https://formsubmit.co/7a38041d4508227ac091223c2d542bd3"
+                method="POST"
                 onSubmit={handleSubmit}
                 className="relative z-10 space-y-10"
               >
@@ -255,14 +244,15 @@ export default function Contact() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     value={formData.name}
                     onChange={handleInputChange}
                     required
                     className="slick-input peer"
-                    placeholder="Tu nombre completo"
+                    placeholder={t('contact.form.name_placeholder')}
                   />
                   <label htmlFor="name" className="floating-label">
-                    Nombre Completo *
+                    {t('contact.form.name_label')}
                   </label>
                 </div>
 
@@ -271,19 +261,28 @@ export default function Contact() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
                     className="slick-input peer"
-                    placeholder="tu@correo.com"
+                    placeholder={t('contact.form.email_placeholder')}
                   />
                   <label htmlFor="email" className="floating-label">
-                    Correo Electrónico *
+                    {t('contact.form.email_label')}
                   </label>
                 </div>
 
                 {/* Grupo: Tipo de Proyecto (Dropdown Personalizado) */}
                 <div className="relative pt-4" ref={dropdownRef}>
+                  <input
+                    type="hidden"
+                    name="project"
+                    value={
+                      projectOptions.find((o) => o.value === formData.project)
+                        ?.label
+                    }
+                  />
                   <div
                     className={`slick-input cursor-pointer relative ${!formData.project ? "" : ""}`}
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -295,14 +294,14 @@ export default function Contact() {
                         ? projectOptions.find(
                             (o) => o.value === formData.project,
                           )?.label
-                        : "Selecciona un proyecto"}
+                        : t('contact.form.project_placeholder')}
                     </span>
 
                     {/* Etiqueta flotante manual controlada por estado */}
                     <label
                       className={`floating-label ${formData.project || isDropdownOpen ? "active" : ""}`}
                     >
-                      Tipo de Proyecto *
+                      {t('contact.form.project_label')}
                     </label>
 
                     {/* Ícono de flecha animado */}
@@ -336,7 +335,7 @@ export default function Contact() {
                           className={`px-4 py-3 text-sm font-light cursor-pointer transition-colors ${formData.project === option.value ? "bg-white/10 text-white" : "text-gray-400 hover:bg-white/5 hover:text-white"}`}
                           onClick={() => handleProjectSelect(option.value)}
                         >
-                          {option.label}
+                          {t(`contact.form.project_options.${option.value}`)}
                         </li>
                       ))}
                     </ul>
@@ -347,15 +346,15 @@ export default function Contact() {
                 <div className="relative pt-4">
                   <textarea
                     id="message"
+                    name="message"
                     rows="4"
                     value={formData.message}
                     onChange={handleInputChange}
-                    // required
                     className="slick-input peer resize-none"
-                    placeholder="Cuéntame más..."
+                    placeholder={t('contact.form.message_placeholder')}
                   ></textarea>
                   <label htmlFor="message" className="floating-label">
-                    Cuéntame más sobre tu historia e inmortalizamos tus ideas *
+                    {t('contact.form.message_label')}
                   </label>
                 </div>
 
@@ -366,7 +365,7 @@ export default function Contact() {
                     disabled={isSubmitting}
                     className={`w-full py-5 border border-white bg-white text-black text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 relative overflow-hidden ${isSubmitting ? "opacity-70 cursor-not-allowed" : "hover:bg-transparent hover:text-white"}`}
                   >
-                    {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
+                    {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}
                   </button>
                 </div>
               </form>

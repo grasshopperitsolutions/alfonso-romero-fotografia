@@ -1,0 +1,48 @@
+# Robots.txt for Alfonso Romero Fotografía
+# https://alfonso-romero.art
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://alfonso-romero.art/sitemap.xml
+
+# Crawl-delay (optional, for respectful crawling)
+Crawl-delay: 10
+
+# Disallow admin or private areas (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow all main pages
+Allow: /
+Allow: /about
+Allow: /services
+Allow: /contact
+
+# Block access to asset files if needed (optional)
+# Disallow: /assets/
+
+# Specific rules for Google bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 10
+
+# Specific rules for social media crawlers
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Block bad bots (optional)
+# User-agent: AhrefsBot
+# Disallow: /
+
+# User-agent: SemrushBot
+# Disallow: /

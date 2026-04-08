@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://alfonso-romero.art/</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alfonso-romero.art/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alfonso-romero.art/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alfonso-romero.art/"/>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://alfonso-romero.art/about</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alfonso-romero.art/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alfonso-romero.art/about"/>
+  </url>
+
+  <!-- Services Page -->
+  <url>
+    <loc>https://alfonso-romero.art/services</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alfonso-romero.art/services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alfonso-romero.art/services"/>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://alfonso-romero.art/contact</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alfonso-romero.art/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alfonso-romero.art/contact"/>
+  </url>
+
+  <!-- Future Portfolio Page (placeholder) -->
+  <!-- Uncomment when portfolio page is added -->
+  <!--
+  <url>
+    <loc>https://alfonso-romero.art/portfolio</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alfonso-romero.art/portfolio"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alfonso-romero.art/portfolio"/>
+  </url>
+  -->
+
+</urlset>

@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "title_part1": "The geometry of space",
+      "title_part2": "and the emotion of the moment.",
+      "subtitle": "Author Photography",
+      "cta_portfolio": "View Portfolio",
+      "cta_contact": "Contact"
+    }
+  },
+  "services": {
+    "header": {
+      "subtitle": "Portfolio & Services",
+      "title": "Visual Pillars"
+    },
+    "categories": {
+      "architecture": {
+        "title": "Architecture & Interior Photography",
+        "description": "Highlighting design intent, pure lines, and the interaction of light with materials. Ideal for architecture studios and construction companies."
+      },
+      "portrait": {
+        "title": "Documentary & Editorial Portrait",
+        "description": "Capturing human essence without artifice. Portraits that tell a story through gaze and environment. Includes Personal Brand Portrait for professionals."
+      },
+      "brand": {
+        "title": "Brand Content (Product & Lifestyle)",
+        "description": "I document the honesty of your process to connect with your audience. Delivery of visual material that doesn't look like advertising, but real life."
+      },
+      "everyday": {
+        "title": "Chronicle of the Everyday",
+        "description": "Personal projects, street photography, and those 'bitter drinks' in black and white. Author vision that positions your artistic work. Option to purchase prints."
+      },
+      "consulting": {
+        "title": "Consulting & Visual Direction",
+        "description": "Strategic accompaniment for brands seeking a coherent, minimalist, and high-impact visual aesthetic."
+      }
+    },
+    "cta": {
+      "title_part1": "Do you have a project",
+      "title_part2": "in mind?",
+      "title_part3": "Let's talk.",
+      "description": "More than a quote, I seek a conversation about projects with soul. Tell me your idea and let's find the best way to visualize it through the lens.",
+      "button": "Start Conversation"
+    }
+  },
+  "about": {
+    "title": "The story behind the lens",
+    "quote": "I am the soul behind the lens that captures stories and immortalizes them to be told forever. Photography is my leap of faith in the face of the world's indifference.",
+    "subtitle": "Capturing the structure of the invisible",
+    "paragraph1": "Exploring the relationship between space and who inhabits it, my photography seeks perfection in geometry and honesty in emotion. I don't just capture places; I document the way light and shadows transform our perception of reality.",
+    "paragraph2": "My approach combines the technical rigor of architecture with the sensitivity of a silent observer. I don't chase the light; I wait for the moment when the shadow reveals the true form of things.",
+    "paragraph3": "My photography is an exercise in silence and observation, where the geometry of spaces ceases to be concrete to become feeling and narrate stories. I believe in the honesty of reflection and in the strength of a gaze that finds order in visual chaos. Each capture is a commitment to pure emotion, frozen between lines, shadows, and the architecture of the invisible.",
+    "cta_project": "Let's talk about your project",
+    "cta_whatsapp": "WhatsApp"
+  },
+  "contact": {
+    "title_part1": "Do you have a project",
+    "title_part2": "in mind?",
+    "title_part3": "Let's talk.",
+    "description": "Available for national and international projects. Tell me your idea and let's find the best way to visualize it.",
+    "form": {
+      "name_label": "Full Name *",
+      "name_placeholder": "Your full name",
+      "email_label": "Email Address *",
+      "email_placeholder": "your@email.com",
+      "project_label": "Project Type *",
+      "project_placeholder": "Select a project",
+      "project_options": {
+        "architecture": "Architecture & Spaces",
+        "portrait": "Documentary & Editorial Portrait",
+        "consulting": "Consulting & Visual Direction",
+        "other": "Other"
+      },
+      "message_label": "Tell me more about your story and we'll immortalize your ideas *",
+      "message_placeholder": "Tell me more...",
+      "submit": "Send Message",
+      "submitting": "Sending..."
+    }
+  },
+  "footer": {
+    "quote": "Where architecture finds its shadow, that's where my story begins.",
+    "copyright": "Author Photography. All rights reserved.",
+    "social": {
+      "instagram": "Instagram",
+      "tiktok": "TikTok",
+      "linkedin": "LinkedIn",
+      "whatsapp": "Share via WhatsApp"
+    }
+  },
+  "common": {
+    "aria": {
+      "main_nav": "Main navigation",
+      "social_links": "Social media",
+      "skip_to_content": "Skip to main content"
+    }
+  }
+}

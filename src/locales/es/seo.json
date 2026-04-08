@@ -1,0 +1,33 @@
+{
+  "site": {
+    "name": "Alfonso Romero Fotografía",
+    "url": "https://alfonso-romero.art",
+    "description": "Fotografía de autor especializada en retratos artísticos, fotografía minimalista y documentación emocional. Sesiones profesionales de retrato en España y Europa."
+  },
+  "home": {
+    "title": "Alfonso Romero Fotografía | Retratos Artísticos y Fotografía de Autor",
+    "description": "Fotógrafo artístico especializado en retratos minimalistas, fotografía emocional y documentación de historias auténticas. Sesiones profesionales en España y Europa.",
+    "keywords": "Alfonso Romero Fotografía, fotógrafo de retratos, fotógrafo artístico, retrato fotográfico profesional, fotografía de retratos España, fotografía minimalista, retratos en blanco y negro, fotografía artística de retrato, fotografía emocional, fotógrafo de retratos artísticos"
+  },
+  "services": {
+    "title": "Servicios de Fotografía | Retrato, Editorial y Consultoría Visual - Alfonso Romero",
+    "description": "Servicios profesionales de fotografía: retrato documental y editorial, fotografía de arquitectura, contenido para marcas, consultoría visual y proyectos personales.",
+    "keywords": "servicios de fotografía, sesión de retratos profesional, fotógrafo para sesión de retratos personales, fotografía documental de personas, contratar fotógrafo de retratos, sesión fotográfica profesional, precio sesión de retratos"
+  },
+  "about": {
+    "title": "Sobre Alfonso Romero | Fotógrafo Artístico de Retratos",
+    "description": "Conoce la historia detrás del lente. Alfonso Romero combina el rigor técnico con la sensibilidad artística para crear retratos auténticos llenos de emoción y geometría.",
+    "keywords": "sobre Alfonso Romero, fotógrafo artístico, fotografía con identidad, retratos auténticos, fotografía de vida cotidiana, retratos con intención"
+  },
+  "contact": {
+    "title": "Contacto | Sesiones de Fotografía Profesional - Alfonso Romero",
+    "description": "Contacta para sesiones de fotografía profesional. Disponible para proyectos nacionales e internacionales en España y Europa. Retratos, arquitectura y consultoría visual.",
+    "keywords": "contacto fotógrafo, contratar fotógrafo, sesión fotográfica, portafolio fotógrafo de retratos"
+  },
+  "person": {
+    "name": "Alfonso Romero",
+    "alternateName": "Alfonso Romero Fotografía",
+    "jobTitle": "Fotógrafo Artístico",
+    "description": "Fotógrafo de autor especializado en retratos artísticos, fotografía minimalista y documentación emocional. Combina geometría arquitectónica con la honestidad de la emoción humana."
+  }
+}
