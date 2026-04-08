@@ -1,6 +1,16 @@
-export default function ProjectCard({ image, alt, title, description }) {
+export default function ProjectCard({
+  image,
+  alt,
+  title,
+  description,
+  isActive,
+  onClick,
+}) {
   return (
-    <div className="project-card group relative overflow-hidden bg-brand-gray h-[450px] lg:h-[550px] animate-fade-up">
+    <div
+      className="project-card group relative overflow-hidden bg-brand-gray h-[450px] animate-fade-up cursor-pointer"
+      onClick={onClick}
+    >
       {/* Imagen de fondo */}
       <div className="absolute inset-0 w-full h-full">
         <img
