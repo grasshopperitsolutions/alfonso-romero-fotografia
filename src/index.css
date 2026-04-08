@@ -22,7 +22,7 @@ body {
 }
 
 /* Light Theme overrides */
-.light-theme body {
+/* .light-theme body {
   background-color: #f4f4f5;
   color: #0a0a0a;
 }
@@ -33,7 +33,7 @@ body {
 
 .light-theme footer {
   background-color: #ffffff;
-}
+} */
 
 /* Fade-in animation */
 .fade-in {
