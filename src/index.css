@@ -176,38 +176,38 @@ body {
 }
 
 /* Service Card enhanced styles */
-.service-card {
+.project-card {
   overflow: hidden;
   position: relative;
 }
 
-.service-img {
+.project-img {
   filter: grayscale(100%) contrast(110%) brightness(0.7);
   transition: filter 0.8s ease, transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.service-card:hover .service-img {
+.project-card:hover .project-img {
   filter: grayscale(0%) contrast(100%) brightness(0.9);
   transform: scale(1.05);
 }
 
-.service-content {
+.project-content {
   background: linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.4) 50%, transparent 100%);
   transform: translateY(20px);
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
 }
 
-.service-card:hover .service-content {
+.project-card:hover .project-content {
   transform: translateY(0);
 }
 
-.service-description {
+.project-description {
   opacity: 0;
   transform: translateX(-20px);
   transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.service-card:hover .service-description {
+.project-card:hover .project-description {
   opacity: 1;
   transform: translateX(0);
 }

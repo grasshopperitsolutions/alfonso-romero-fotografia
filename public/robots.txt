@@ -17,7 +17,7 @@ Crawl-delay: 10
 # Allow all main pages
 Allow: /
 Allow: /about
-Allow: /services
+Allow: /projects
 Allow: /contact
 
 # Block access to asset files if needed (optional)

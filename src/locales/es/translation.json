@@ -2,7 +2,7 @@
   "nav": {
     "home": "Inicio",
     "about": "Sobre Mí",
-    "services": "Servicios",
+    "projects": "Proyectos",
     "contact": "Contacto"
   },
   "home": {
@@ -14,9 +14,9 @@
       "cta_contact": "Contactar"
     }
   },
-  "services": {
+  "projects": {
     "header": {
-      "subtitle": "Portafolio & Servicios",
+      "subtitle": "Portafolio & Proyectos",
       "title": "Pilares Visuales"
     },
     "categories": {

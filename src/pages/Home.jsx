@@ -33,7 +33,7 @@ export default function Home() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
-            to="/services"
+            to="/projects"
             className="px-8 py-3 bg-white text-black text-sm uppercase tracking-widest hover:bg-gray-200 transition-colors w-full sm:w-auto"
           >
             {t('home.hero.cta_portfolio')}

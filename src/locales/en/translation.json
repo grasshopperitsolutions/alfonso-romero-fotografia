@@ -2,7 +2,7 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "services": "Services",
+    "projects": "Projects",
     "contact": "Contact"
   },
   "home": {
@@ -14,9 +14,9 @@
       "cta_contact": "Contact"
     }
   },
-  "services": {
+  "projects": {
     "header": {
-      "subtitle": "Portfolio & Services",
+      "subtitle": "Portfolio & Projects",
       "title": "Visual Pillars"
     },
     "categories": {

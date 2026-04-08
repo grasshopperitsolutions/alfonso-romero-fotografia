@@ -23,14 +23,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://alfonso-romero.art/about"/>
   </url>
 
-  <!-- Services Page -->
+  <!-- Projects Page -->
   <url>
-    <loc>https://alfonso-romero.art/services</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://alfonso-romero.art/projects</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://alfonso-romero.art/services"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://alfonso-romero.art/services"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alfonso-romero.art/projects"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alfonso-romero.art/projects"/>
   </url>
 
   <!-- Contact Page -->

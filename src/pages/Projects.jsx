@@ -1,50 +1,50 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import ServiceCard from "../components/ServiceCard";
+import ProjectCard from "../components/ProjectCard";
 import SEOMeta from "../components/SEOMeta";
 
-export default function Services() {
+export default function Projects() {
   const { t } = useTranslation();
   
-  const services = [
+  const projects = [
     {
       image:
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
-      alt: t('services.categories.architecture.title'),
-      title: t('services.categories.architecture.title'),
-      description: t('services.categories.architecture.description'),
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=c=crop&w=800&q=80",
+      alt: t('projects.categories.architecture.title'),
+      title: t('projects.categories.architecture.title'),
+      description: t('projects.categories.architecture.description'),
       delay: "animation-delay-100",
     },
     {
       image:
         "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80",
-      alt: t('services.categories.portrait.title'),
-      title: t('services.categories.portrait.title'),
-      description: t('services.categories.portrait.description'),
+      alt: t('projects.categories.portrait.title'),
+      title: t('projects.categories.portrait.title'),
+      description: t('projects.categories.portrait.description'),
       delay: "animation-delay-200",
     },
     {
       image:
         "https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?auto=format&fit=crop&w=800&q=80",
-      alt: t('services.categories.brand.title'),
-      title: t('services.categories.brand.title'),
-      description: t('services.categories.brand.description'),
+      alt: t('projects.categories.brand.title'),
+      title: t('projects.categories.brand.title'),
+      description: t('projects.categories.brand.description'),
       delay: "animation-delay-300",
     },
     {
       image:
         "https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=800&q=80",
-      alt: t('services.categories.everyday.title'),
-      title: t('services.categories.everyday.title'),
-      description: t('services.categories.everyday.description'),
+      alt: t('projects.categories.everyday.title'),
+      title: t('projects.categories.everyday.title'),
+      description: t('projects.categories.everyday.description'),
       delay: "animation-delay-400",
     },
     {
       image:
         "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      alt: t('services.categories.consulting.title'),
-      title: t('services.categories.consulting.title'),
-      description: t('services.categories.consulting.description'),
+      alt: t('projects.categories.consulting.title'),
+      title: t('projects.categories.consulting.title'),
+      description: t('projects.categories.consulting.description'),
       delay: "animation-delay-500",
     },
   ];
@@ -70,15 +70,15 @@ export default function Services() {
 
   return (
     <div className="min-h-screen bg-brand-black">
-      <SEOMeta page="services" />
+      <SEOMeta page="projects" />
       
       {/* TÍTULO DE SECCIÓN */}
       <section className="max-w-7xl mx-auto px-6 lg:px-12 pt-32 lg:pt-40 pb-16 text-center animate-fade-up">
         <h1 className="text-sm tracking-[0.3em] uppercase text-gray-500 font-light mb-4">
-          {t('services.header.subtitle')}
+          {t('projects.header.subtitle')}
         </h1>
         <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif mb-6">
-          {t('services.header.title')}
+          {t('projects.header.title')}
         </h2>
         <div className="h-px w-24 bg-white/30 mx-auto"></div>
       </section>
@@ -86,9 +86,9 @@ export default function Services() {
       {/* GRID DE PILARES */}
       <section className="max-w-7xl mx-auto px-6 lg:px-12 pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-          {services.map((service, index) => (
-            <div key={service.title} className={service.delay}>
-              <ServiceCard {...service} />
+          {projects.map((project, index) => (
+            <div key={project.title} className={project.delay}>
+              <ProjectCard {...project} />
             </div>
           ))}
         </div>
@@ -101,12 +101,12 @@ export default function Services() {
 
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-4xl md:text-6xl font-serif mb-8 leading-tight">
-            {t('services.cta.title_part1')}{" "}
+            {t('projects.cta.title_part1')}{" "}
             <br className="hidden md:block" />
-            <span className="italic text-gray-400">{t('services.cta.title_part2')}</span> {t('services.cta.title_part3')}
+            <span className="italic text-gray-400">{t('projects.cta.title_part2')}</span> {t('projects.cta.title_part3')}
           </h2>
           <p className="text-lg text-gray-400 font-light mb-12 max-w-2xl mx-auto">
-            {t('services.cta.description')}
+            {t('projects.cta.description')}
           </p>
 
           <a
@@ -114,7 +114,7 @@ export default function Services() {
             className="group relative inline-flex items-center justify-center px-12 py-5 bg-white text-black text-sm uppercase tracking-[0.2em] font-medium overflow-hidden transition-all duration-500 hover:scale-105"
           >
             <span className="relative z-10 flex items-center">
-              {t('services.cta.button')}
+              {t('projects.cta.button')}
               {/* Arrow icon */}
               <svg
                 className="w-5 h-5 inline-block ml-2 group-hover:translate-x-2 transition-transform duration-300"
