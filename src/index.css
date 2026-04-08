@@ -18,22 +18,7 @@ body {
   color: #f4f4f5;
   -webkit-font-smoothing: antialiased;
   font-family: 'Inter', sans-serif;
-  transition: background-color 0.5s ease, color 0.5s ease;
 }
-
-/* Light Theme overrides */
-/* .light-theme body {
-  background-color: #f4f4f5;
-  color: #0a0a0a;
-}
-
-.light-theme header {
-  background-color: #ffffff;
-}
-
-.light-theme footer {
-  background-color: #ffffff;
-} */
 
 /* Fade-in animation */
 .fade-in {
