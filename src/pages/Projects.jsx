@@ -5,6 +5,28 @@ import ProjectCard from "../components/ProjectCard";
 import ProjectAccordion from "../components/ProjectAccordion";
 import CloseIcon from "../components/icons/CloseIcon";
 
+// Project 1 images
+import project1_1 from "../assets/pilar-1/project-1/1.jpeg";
+import project1_2 from "../assets/pilar-1/project-1/2.jpeg";
+import project1_3 from "../assets/pilar-1/project-1/3.jpeg";
+import project1_4 from "../assets/pilar-1/project-1/4.jpeg";
+import project1_5 from "../assets/pilar-1/project-1/5.jpeg";
+import project1_6 from "../assets/pilar-1/project-1/6.jpeg";
+
+// Project 2 images
+import project2_1 from "../assets/pilar-1/project-2/1.jpeg";
+import project2_2 from "../assets/pilar-1/project-2/2.jpeg";
+import project2_3 from "../assets/pilar-1/project-2/3.jpeg";
+import project2_4 from "../assets/pilar-1/project-2/4.jpeg";
+import project2_5 from "../assets/pilar-1/project-2/5.jpeg";
+
+// Project 3 images
+import project3_1 from "../assets/pilar-1/project-3/1.jpeg";
+import project3_2 from "../assets/pilar-1/project-3/2.jpeg";
+import project3_3 from "../assets/pilar-1/project-3/3.jpeg";
+import project3_4 from "../assets/pilar-1/project-3/4.jpeg";
+import project3_5 from "../assets/pilar-1/project-3/5.jpeg";
+
 // Example projects using images from pilar-1 folder
 const getExampleProjects = () => [
   {
@@ -13,12 +35,12 @@ const getExampleProjects = () => [
     description:
       "Muestra de trabajo fotográfico con enfoque en detalles y composición visual.",
     images: [
-      "/src/assets/pilar-1/project-1/1.jpeg",
-      "/src/assets/pilar-1/project-1/2.jpeg",
-      "/src/assets/pilar-1/project-1/3.jpeg",
-      "/src/assets/pilar-1/project-1/4.jpeg",
-      "/src/assets/pilar-1/project-1/5.jpeg",
-      "/src/assets/pilar-1/project-1/6.jpeg",
+      project1_1,
+      project1_2,
+      project1_3,
+      project1_4,
+      project1_5,
+      project1_6,
     ],
   },
   {
@@ -27,11 +49,11 @@ const getExampleProjects = () => [
     description:
       "Serie fotográfica que explora la relación entre la luz y las texturas naturales.",
     images: [
-      "/src/assets/pilar-1/project-2/1.jpeg",
-      "/src/assets/pilar-1/project-2/2.jpeg",
-      "/src/assets/pilar-1/project-2/3.jpeg",
-      "/src/assets/pilar-1/project-2/4.jpeg",
-      "/src/assets/pilar-1/project-2/5.jpeg",
+      project2_1,
+      project2_2,
+      project2_3,
+      project2_4,
+      project2_5,
     ],
   },
   {
@@ -40,11 +62,11 @@ const getExampleProjects = () => [
     description:
       "Documentación visual de espacios arquitectónicos con un enfoque minimalista.",
     images: [
-      "/src/assets/pilar-1/project-3/1.jpeg",
-      "/src/assets/pilar-1/project-3/2.jpeg",
-      "/src/assets/pilar-1/project-3/3.jpeg",
-      "/src/assets/pilar-1/project-3/4.jpeg",
-      "/src/assets/pilar-1/project-3/5.jpeg",
+      project3_1,
+      project3_2,
+      project3_3,
+      project3_4,
+      project3_5,
     ],
   },
 ];
