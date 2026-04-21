@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { directWhatsApp, shareToWhatsApp } from "../utils/whatsapp";
-
+import FlickrIcon from "../assets/flickr-icon.svg?react";
 export default function Footer() {
   const { t } = useTranslation();
 
@@ -47,9 +47,7 @@ export default function Footer() {
             aria-label={t("footer.social.flickr")}
           >
             <span className="sr-only">{t("footer.social.flickr")}</span>
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm0-14c-2.209 0-4 1.791-4 4s1.791 4 4 4 4-1.791 4-4-1.791-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z" />
-            </svg>
+            <FlickrIcon />
           </a>
 
           {/* WhatsApp (Share) */}
