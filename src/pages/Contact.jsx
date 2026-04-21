@@ -29,10 +29,10 @@ const WhatsAppIcon = () => (
 
 // Opciones del proyecto basadas en los pilares del documento
 const projectOptions = [
-  { value: "arquitectura", label: "Arquitectura & Espacios" },
-  { value: "retrato", label: "Retrato Documental y Editorial" },
-  { value: "consultoria", label: "Consultoría & Dirección Visual" },
-  { value: "otro", label: "Otro" },
+  { value: "architecture", label: "Arquitectura & Espacios" },
+  { value: "portrait", label: "Retrato Documental y Editorial" },
+  { value: "consulting", label: "Consultoría & Dirección Visual" },
+  { value: "other", label: "Otro" },
 ];
 
 // Validación de email
