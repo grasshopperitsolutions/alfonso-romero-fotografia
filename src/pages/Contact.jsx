@@ -236,7 +236,7 @@ export default function Contact() {
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/[0.02] rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-white/[0.04] transition-colors duration-700"></div>
 
               <form
-                action="https://formsubmit.co/7a38041d4508227ac091223c2d542bd3"
+                action="https://formsubmit.co/fueradecasa.co@gmail.com"
                 method="POST"
                 onSubmit={handleSubmit}
                 className="relative z-10 space-y-10"
