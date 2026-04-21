@@ -121,7 +121,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-[#f4f4f5] flex flex-col font-sans selection:bg-white selection:text-black">
       <SEOMeta page="contact" />
-      
+
       {/* ESTILOS GLOBALES Y ANIMACIONES */}
       <style
         dangerouslySetInnerHTML={{
@@ -188,29 +188,31 @@ export default function Contact() {
           {/* COLUMNA IZQUIERDA: Textos y Datos Directos */}
           <div className="w-full lg:w-5/12 flex flex-col justify-center mt-12 lg:mt-0 animate-fade-up">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-8 leading-[1.1]">
-              {t('contact.title_part1')} <br className="hidden lg:block" />
-              <span className="italic text-gray-400">{t('contact.title_part2')}</span>
+              {t("contact.title_part1")} <br className="hidden lg:block" />
+              <span className="italic text-gray-400">
+                {t("contact.title_part2")}
+              </span>
               <br />
-              {t('contact.title_part3')}
+              {t("contact.title_part3")}
             </h2>
 
             <div className="h-px w-20 bg-white/30 mb-8"></div>
 
             <p className="text-lg text-gray-300 font-light leading-relaxed mb-16 max-w-md">
-              {t('contact.description')}
+              {t("contact.description")}
             </p>
 
             {/* Datos Directos */}
             <div className="space-y-6 animate-fade-up delay-100">
               <a
-                href="mailto:tu@correo.com"
+                href="mailto:fueradecasa.co@gmail.com"
                 className="flex items-center space-x-4 text-gray-400 hover:text-white transition-colors group w-max"
               >
                 <span className="p-3 border border-white/10 rounded-full group-hover:border-white/40 transition-colors">
                   <MailIcon />
                 </span>
                 <span className="font-light tracking-wide text-sm">
-                  tu@correo.com
+                  fueradecasa.co@gmail.com
                 </span>
               </a>
 
@@ -222,7 +224,7 @@ export default function Contact() {
                   <WhatsAppIcon />
                 </span>
                 <span className="font-light tracking-wide text-sm">
-                  +33 7 67 83 45 76
+                  +34 613 42 74 49
                 </span>
               </button>
             </div>
@@ -249,10 +251,10 @@ export default function Contact() {
                     onChange={handleInputChange}
                     required
                     className="slick-input peer"
-                    placeholder={t('contact.form.name_placeholder')}
+                    placeholder={t("contact.form.name_placeholder")}
                   />
                   <label htmlFor="name" className="floating-label">
-                    {t('contact.form.name_label')}
+                    {t("contact.form.name_label")}
                   </label>
                 </div>
 
@@ -266,10 +268,10 @@ export default function Contact() {
                     onChange={handleInputChange}
                     required
                     className="slick-input peer"
-                    placeholder={t('contact.form.email_placeholder')}
+                    placeholder={t("contact.form.email_placeholder")}
                   />
                   <label htmlFor="email" className="floating-label">
-                    {t('contact.form.email_label')}
+                    {t("contact.form.email_label")}
                   </label>
                 </div>
 
@@ -294,14 +296,14 @@ export default function Contact() {
                         ? projectOptions.find(
                             (o) => o.value === formData.project,
                           )?.label
-                        : t('contact.form.project_placeholder')}
+                        : t("contact.form.project_placeholder")}
                     </span>
 
                     {/* Etiqueta flotante manual controlada por estado */}
                     <label
                       className={`floating-label ${formData.project || isDropdownOpen ? "active" : ""}`}
                     >
-                      {t('contact.form.project_label')}
+                      {t("contact.form.project_label")}
                     </label>
 
                     {/* Ícono de flecha animado */}
@@ -351,10 +353,10 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleInputChange}
                     className="slick-input peer resize-none"
-                    placeholder={t('contact.form.message_placeholder')}
+                    placeholder={t("contact.form.message_placeholder")}
                   ></textarea>
                   <label htmlFor="message" className="floating-label">
-                    {t('contact.form.message_label')}
+                    {t("contact.form.message_label")}
                   </label>
                 </div>
 
@@ -365,7 +367,9 @@ export default function Contact() {
                     disabled={isSubmitting}
                     className={`w-full py-5 border border-white bg-white text-black text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 relative overflow-hidden ${isSubmitting ? "opacity-70 cursor-not-allowed" : "hover:bg-transparent hover:text-white"}`}
                   >
-                    {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}
+                    {isSubmitting
+                      ? t("contact.form.submitting")
+                      : t("contact.form.submit")}
                   </button>
                 </div>
               </form>
