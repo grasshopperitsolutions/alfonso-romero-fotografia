@@ -4,106 +4,17 @@ import SEOMeta from "../components/SEOMeta";
 import ProjectCard from "../components/ProjectCard";
 import ProjectAccordion from "../components/ProjectAccordion";
 import CloseIcon from "../components/icons/CloseIcon";
-
-// Project 1 images
-import project1_1 from "../assets/pilar-1/project-1/1.jpeg";
-import project1_2 from "../assets/pilar-1/project-1/2.jpeg";
-import project1_3 from "../assets/pilar-1/project-1/3.jpeg";
-import project1_4 from "../assets/pilar-1/project-1/4.jpeg";
-import project1_5 from "../assets/pilar-1/project-1/5.jpeg";
-import project1_6 from "../assets/pilar-1/project-1/6.jpeg";
-
-// Project 2 images
-import project2_1 from "../assets/pilar-1/project-2/1.jpeg";
-import project2_2 from "../assets/pilar-1/project-2/2.jpeg";
-import project2_3 from "../assets/pilar-1/project-2/3.jpeg";
-import project2_4 from "../assets/pilar-1/project-2/4.jpeg";
-import project2_5 from "../assets/pilar-1/project-2/5.jpeg";
-
-// Project 3 images
-import project3_1 from "../assets/pilar-1/project-3/1.jpeg";
-import project3_2 from "../assets/pilar-1/project-3/2.jpeg";
-import project3_3 from "../assets/pilar-1/project-3/3.jpeg";
-import project3_4 from "../assets/pilar-1/project-3/4.jpeg";
-import project3_5 from "../assets/pilar-1/project-3/5.jpeg";
-
-// Example projects using images from pilar-1 folder
-const getExampleProjects = () => [
-  {
-    id: "project-1",
-    title: "Proyecto Ejemplo 1",
-    images: [
-      project1_1,
-      project1_2,
-      project1_3,
-      project1_4,
-      project1_5,
-      project1_6,
-    ],
-  },
-  {
-    id: "project-2",
-    title: "Proyecto Ejemplo 2",
-    images: [project2_1, project2_2, project2_3, project2_4, project2_5],
-  },
-  {
-    id: "project-3",
-    title: "Proyecto Ejemplo 3",
-    images: [project3_1, project3_2, project3_3, project3_4, project3_5],
-  },
-];
+import { pillars, getPillarById } from "../data/pillarsData";
+import { getProjectsByPillar } from "../data/projectsData";
 
 export default function Projects() {
   const { t } = useTranslation();
   const [activePillar, setActivePillar] = useState(null);
 
-  const projects = [
-    {
-      id: "01",
-      image:
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
-      alt: t("projects.categories.architecture.title"),
-      title: t("projects.categories.architecture.title"),
-      description: t("projects.categories.architecture.description"),
-      delay: "animation-delay-100",
-    },
-    {
-      id: "02",
-      image:
-        "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80",
-      alt: t("projects.categories.portrait.title"),
-      title: t("projects.categories.portrait.title"),
-      description: t("projects.categories.portrait.description"),
-      delay: "animation-delay-200",
-    },
-    {
-      id: "03",
-      image:
-        "https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?auto=format&fit=crop&w=800&q=80",
-      alt: t("projects.categories.brand.title"),
-      title: t("projects.categories.brand.title"),
-      description: t("projects.categories.brand.description"),
-      delay: "animation-delay-300",
-    },
-    {
-      id: "04",
-      image:
-        "https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=800&q=80",
-      alt: t("projects.categories.everyday.title"),
-      title: t("projects.categories.everyday.title"),
-      description: t("projects.categories.everyday.description"),
-      delay: "animation-delay-400",
-    },
-    {
-      id: "05",
-      image:
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      alt: t("projects.categories.consulting.title"),
-      title: t("projects.categories.consulting.title"),
-      description: t("projects.categories.consulting.description"),
-      delay: "animation-delay-500",
-    },
-  ];
+  const activePillarObj = activePillar ? getPillarById(activePillar) : null;
+  const activeProjects = activePillarObj
+    ? getProjectsByPillar(activePillarObj.pillarKey)
+    : [];
 
   // Handle pillar click with smooth scroll
   const handlePillarClick = (pillarId) => {
@@ -155,10 +66,13 @@ export default function Projects() {
       {/* GRID DE PILARES */}
       <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-          {projects.map((pillar) => (
+          {pillars.map((pillar) => (
             <div key={pillar.id} className={pillar.delay}>
               <ProjectCard
-                {...pillar}
+                image={pillar.image}
+                alt={t(pillar.altKey)}
+                title={t(pillar.title)}
+                description={t(pillar.description)}
                 isActive={activePillar === pillar.id}
                 onClick={() => handlePillarClick(pillar.id)}
               />
@@ -168,7 +82,7 @@ export default function Projects() {
       </section>
 
       {/* SECCIÓN DETALLADA DE PROYECTOS */}
-      {activePillar && (
+      {activePillar && activePillarObj && (
         <section
           id="details-section"
           className="max-w-7xl mx-auto px-6 lg:px-12 mb-32 animate-fade-up"
@@ -181,7 +95,7 @@ export default function Projects() {
                   Portafolio Destacado
                 </span>
                 <h3 className="text-3xl lg:text-5xl font-serif text-white">
-                  {projects.find((p) => p.id === activePillar)?.title}
+                  {t(activePillarObj.title)}
                 </h3>
               </div>
               <button
@@ -195,7 +109,7 @@ export default function Projects() {
 
             {/* Project Accordions */}
             <div className="space-y-12">
-              {getExampleProjects().map((project) => (
+              {activeProjects.map((project) => (
                 <ProjectAccordion key={project.id} project={project} />
               ))}
             </div>
