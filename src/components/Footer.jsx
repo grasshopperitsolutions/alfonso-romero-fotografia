@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="border-t border-white/10 bg-brand-black mt-auto">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 flex flex-col md:flex-row justify-between items-center text-sm font-light text-gray-400">
         <div className="mb-6 md:mb-0 text-center md:text-left">
-          <p className="font-serif italic text-lg text-white mb-2">
+          <p className="font-serif text-lg text-white mb-2">
             "{t("footer.quote")}"
           </p>
           <p>

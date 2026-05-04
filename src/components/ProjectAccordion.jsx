@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import ChevronDownIcon from './icons/ChevronDownIcon';
-import ChevronUpIcon from './icons/ChevronUpIcon';
-import ImageCarousel from './ImageCarousel';
+import { useState } from "react";
+import ChevronDownIcon from "./icons/ChevronDownIcon";
+import ChevronUpIcon from "./icons/ChevronUpIcon";
+import ImageCarousel from "./ImageCarousel";
 
 const ProjectAccordion = ({ project }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -17,9 +17,6 @@ const ProjectAccordion = ({ project }) => {
           <h4 className="text-xl md:text-2xl font-serif text-white mb-3 group-hover:text-gray-300 transition-colors">
             {project.title}
           </h4>
-          <p className="text-sm text-gray-400 font-light leading-relaxed">
-            {project.description}
-          </p>
         </div>
         <div className="text-gray-500 flex-shrink-0">
           {isCollapsed ? <ChevronDownIcon /> : <ChevronUpIcon />}
@@ -27,7 +24,7 @@ const ProjectAccordion = ({ project }) => {
       </div>
 
       {/* Project Content */}
-      <div className={`project-content ${isCollapsed ? 'collapsed' : ''}`}>
+      <div className={`project-content ${isCollapsed ? "collapsed" : ""}`}>
         <div className="project-content-inner">
           <ImageCarousel images={project.images} />
         </div>

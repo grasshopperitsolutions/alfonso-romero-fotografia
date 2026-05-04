@@ -32,8 +32,6 @@ const getExampleProjects = () => [
   {
     id: "project-1",
     title: "Proyecto Ejemplo 1",
-    description:
-      "Muestra de trabajo fotográfico con enfoque en detalles y composición visual.",
     images: [
       project1_1,
       project1_2,
@@ -46,28 +44,12 @@ const getExampleProjects = () => [
   {
     id: "project-2",
     title: "Proyecto Ejemplo 2",
-    description:
-      "Serie fotográfica que explora la relación entre la luz y las texturas naturales.",
-    images: [
-      project2_1,
-      project2_2,
-      project2_3,
-      project2_4,
-      project2_5,
-    ],
+    images: [project2_1, project2_2, project2_3, project2_4, project2_5],
   },
   {
     id: "project-3",
     title: "Proyecto Ejemplo 3",
-    description:
-      "Documentación visual de espacios arquitectónicos con un enfoque minimalista.",
-    images: [
-      project3_1,
-      project3_2,
-      project3_3,
-      project3_4,
-      project3_5,
-    ],
+    images: [project3_1, project3_2, project3_3, project3_4, project3_5],
   },
 ];
 
@@ -164,12 +146,9 @@ export default function Projects() {
 
       {/* TÍTULO DE SECCIÓN */}
       <section className="max-w-7xl mx-auto px-6 lg:px-12 pt-32 lg:pt-40 pb-16 text-center animate-fade-up">
-        <h1 className="text-sm tracking-[0.3em] uppercase text-gray-500 font-light mb-4">
+        <h1 className="text-2xl tracking-[0.3em] uppercase text-gray-500 font-light mb-4">
           {t("projects.header.subtitle")}
         </h1>
-        <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif mb-6">
-          {t("projects.header.title")}
-        </h2>
         <div className="h-px w-24 bg-white/30 mx-auto"></div>
       </section>
 

@@ -44,9 +44,8 @@ export default function Header() {
             <CameraIcon />
           </div>
           <div className="text-xl font-serif font-semibold tracking-wide flex items-baseline">
-            FOTOGRAFÍA
             <span className="text-gray-500 font-sans font-light text-sm ml-2 hidden sm:inline-block tracking-widest">
-              DE AUTOR
+              ALFONSO ROMERO ART
             </span>
           </div>
         </Link>
