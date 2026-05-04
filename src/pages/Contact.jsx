@@ -145,7 +145,7 @@ export default function Contact() {
           border-bottom: 1px solid rgba(255, 255, 255, 0.15);
           color: white;
           padding: 12px 0;
-          font-family: 'Inter', sans-serif;
+          font-family: "Cutive Mono", monospace;
           font-weight: 300;
           transition: all 0.3s ease;
           border-radius: 0;
