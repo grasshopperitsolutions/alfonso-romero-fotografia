@@ -15,7 +15,7 @@ const ImageCarousel = ({ images }) => {
             <img
               src={imgSrc}
               alt={`Project image ${index + 1}`}
-              className="w-full h-full object-cover filter grayscale opacity-70 group-hover/img:grayscale-0 group-hover/img:opacity-100 group-hover/img:scale-105 transition-all duration-700"
+              className="w-full h-full object-contain filter grayscale opacity-70 group-hover/img:grayscale-0 group-hover/img:opacity-100 group-hover/img:scale-105 transition-all duration-700"
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = `https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80`;
